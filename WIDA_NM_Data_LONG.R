@@ -22,14 +22,14 @@ variables.to.get.2018 <- c("stid", "distcode", "distname", "schcode", "schname",
 variable.names.2018 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL")
 variables.to.get.2019 <- c("stid", "distcode", "distname", "schcode", "schname", "last", "first", "STARS_grade", "SS_composite", "PL_composite")
 variable.names.2019 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL")
-variables.to.get.2020 <- c("State Student ID", "District Number", "District Name", "School Number", "School Name", "Student Last Name", "Student First Name", "Grade", "Composite (Overall) Scale Score", "Composite (Overall) Proficiency Level", "Reported Record")
-variable.names.2020 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL", "REPORTED_RECORD")
-variables.to.get.2021 <- c("State Student ID", "District Number", "District Name", "School Number", "School Name", "Student Last Name", "Student First Name", "Grade", "Composite (Overall) Scale Score", "Composite (Overall) Proficiency Level")
-variable.names.2021 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL")
-variables.to.get.2022 <- c("StID", "DistCode", "DistName", "SchCode", "SchName", "LastName", "FirstName", "Grade", "ScaleScore", "PL")
-variable.names.2022 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL")
-variables.to.get.2023 <- c("State.Student.ID", "District.Number", "District.Name", "School.Number", "School.Name", "Student.Last.Name", "Student.First.Name", "Grade", "Scale.Score.-.Overall", "Proficiency.Level.-.Overall")
-variable.names.2023 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL")
+variables.to.get.2020 <- c("State Student ID", "District Number", "District Name", "School Number", "School Name", "Student Last Name", "Student First Name", "Grade", "Composite (Overall) Scale Score", "Composite (Overall) Proficiency Level", "Reported Record", "Length of Time in LEP/ELL Program")
+variable.names.2020 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL", "REPORTED_RECORD", "TIME_IN_NM")
+variables.to.get.2021 <- c("State Student ID", "District Number", "District Name", "School Number", "School Name", "Student Last Name", "Student First Name", "Grade", "Composite (Overall) Scale Score", "Composite (Overall) Proficiency Level", "Length of Time in LEP/ELL Program")
+variable.names.2021 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL", "TIME_IN_NM")
+variables.to.get.2022 <- c("StID", "DistCode", "DistName", "SchCode", "SchName", "LastName", "FirstName", "Grade", "ScaleScore", "PL", "InELPSince")
+variable.names.2022 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL", "TIME_IN_NM")
+variables.to.get.2023 <- c("State.Student.ID", "District.Number", "District.Name", "School.Number", "School.Name", "Student.Last.Name", "Student.First.Name", "Grade", "Scale.Score.-.Overall", "Proficiency.Level.-.Overall", "Length.of.Time.in.LEP/ELL.Program")
+variable.names.2023 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "WIDA_ACHIEVEMENT_LEVEL", "TIME_IN_NM")
 
 ### Rename variables
 tmp.2018 <- tmp.2018[,variables.to.get.2018, with=FALSE]
@@ -175,4 +175,3 @@ WIDA_NM_Data_LONG[which(duplicated(WIDA_NM_Data_LONG, by=key(WIDA_NM_Data_LONG))
 
 ### Save output
 save(WIDA_NM_Data_LONG, file="Data/WIDA_NM_Data_LONG.Rdata")
-
