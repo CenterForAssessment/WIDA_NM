@@ -34,8 +34,8 @@ variables.to.get.2022 <- c("StID", "DistCode", "DistName", "SchCode", "SchName",
 variable.names.2022 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "ACHIEVEMENT_LEVEL_ORIGINAL", "YEARS_IN_NM")
 variables.to.get.2023 <- c("State.Student.ID", "District.Number", "District.Name", "School.Number", "School.Name", "Student.Last.Name", "Student.First.Name", "Grade", "Scale.Score.-.Overall", "Proficiency.Level.-.Overall", "Length.of.Time.in.LEP/ELL.Program")
 variable.names.2023 <- c("ID", "DISTRICT_NUMBER", "DISTRICT_NAME", "SCHOOL_NUMBER", "SCHOOL_NAME", "LAST_NAME", "FIRST_NAME", "GRADE", "SCALE_SCORE", "ACHIEVEMENT_LEVEL_ORIGINAL", "YEARS_IN_NM")
-variables.to.get.2023.demo <- c("STUDENT_ID", "SY2023_Accountable_School", "SY2023_Accountable_District", "STUDENT_GENDER", "RaceEthnicity_NM", "RPTG_RACE_ETHNICITY_DESC", "ECONOMIC_CODE_IFEVER", "POVERTY_CODE_IFEVER", "SPECIAL_ED_CODE_IFEVER", "ENG_PROFICIENCY_IFEVER", "HOMELESS_IFEVER", "YEARS_US_SCHOOLS",  "CURR_GRADE_LVL")
-variable.names.2023.demo <- c("ID", "SCHOOL_NUMBER_ACCOUNTABLE", "DISTRICT_NUMBER_ACCOUNTABLE", "GENDER", "ETHNICITY", "ETHNICITY_DESCRIPTION", "SES_STATUS", "POVERTY_STATUS", "SPECIAL_EDUCATION_STATUS", "ENGLISH_PROFICIENCY_STATUS", "HOMELESS_STATUS", "YEARS_IN_US_SCHOOLS", "GRADE")
+variables.to.get.2023.demo <- c("STUDENT_ID", "Female.2", "Male.3", "Hispanic.4", "White.5", "Black.6", "Asian.7", "Native.8", "Multirace.9", "FRL.10", "NotFRL.11", "DirectCert.12", "NotDirectCert.13", "SwD.14", "NotSwD.15", "EL.16", "NotEL.17", "Migrant.18", "Homeless.19", "Military.20", "Foster.21", "Any_Native.22", "Any_Black.23")
+variable.names.2023.demo <- c("ID", "Female", "Male", "Hispanic", "White", "Black", "Asian", "Native", "Multirace", "FRL", "NotFRL", "DirectCert", "NotDirectCert", "SwD", "NotSwD", "EL", "NotEL", "Migrant", "Homeless", "Military", "Foster", "Any_Native", "Any_Black")
 
 ### Rename variables
 tmp.2018 <- tmp.2018[,variables.to.get.2018, with=FALSE]
@@ -188,8 +188,7 @@ WIDA_NM_Data_LONG[which(duplicated(WIDA_NM_Data_LONG, by=key(WIDA_NM_Data_LONG))
 setkey(WIDA_NM_Data_LONG, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
 
 ### Merge in demographic data
-setkey(tmp.2023.demo, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
-WIDA_NM_Data_LONG <- tmp.2023.demo[WIDA_NM_Data_LONG]
+WIDA_NM_Data_LONG <- tmp.2023.demo[WIDA_NM_Data_LONG, on=c("VALID_CASE", "CONTENT_AREA", "YEAR", "ID")]
 
 ### Merge in targets
 #shift.key <- c("ID", "CONTENT_AREA", "YEAR", "GRADE", "VALID_CASE")
